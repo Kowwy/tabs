@@ -1,0 +1,10 @@
+{
+  "manifest_version": 2,
+  "name": "Full-time Tabs",
+  "version": "1.0",
+  "description": "Keeps specified tabs pinned on startup across all windows, old and new.",
+  "permissions": ["<all_urls>", "tabs"],
+  "background": {
+    "scripts": ["background.js"]
+  }
+}
