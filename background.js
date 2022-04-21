@@ -1,21 +1,18 @@
-var websites = [
+var desiredTabs = [
   "https://www.app.raindrop.io",
   "https://www.app.youneedabudget.com",
   "https://www.calendar.google.com",
   "https://www.reddit.com",
-  "https://www.help.obsidian.md",
-  "https://rocketleague.tracker.network/",
-  "https://www.google.com",
 ];
 
-let tabs = browser.tabs;
+const tabs = browser.tabs;
 
-function createPinnedTab(site) {
+function createPinnedTab(url) {
   tabs.create({
     pinned: true,
-    url: site,
+    url: url,
   });
-  console.log("site: %s", site);
+  console.log("site: %s", url);
 }
 
 async function getCurrentTabs() {
@@ -28,23 +25,23 @@ async function getCurrentTabs() {
 }
 
 function getNeededTabs(current, desired) {
-  const needed = [];
+  const neededTabs = [];
   for (let i = 0; i < desired.length; i++) {
-    needed.push(desired[i]);
+    neededTabs.push(desired[i]);
     for (let j = 0; j < current.length; j++) {
       if (current[j].includes(desired[i])) {
-        needed.pop();
+        neededTabs.pop();
       }
     }
   }
-  return needed;
+  return neededTabs;
 }
 
 async function main() {
   let currentTabs = await getCurrentTabs();
-  let needed = getNeededTabs(currentTabs, websites);
-  console.log(needed);
-  needed.forEach((url) => {
+  let neededTabs = getNeededTabs(currentTabs, desiredTabs);
+  console.log(neededTabs);
+  neededTabs.forEach((url) => {
     createPinnedTab(url);
   });
   return;
