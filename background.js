@@ -4,6 +4,7 @@ var desiredTabs = [
   "https://www.calendar.google.com",
   "https://www.reddit.com",
 ];
+// TODO: Make the config external, with regex support maybe
 
 const tabs = browser.tabs;
 

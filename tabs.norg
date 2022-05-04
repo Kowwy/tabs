@@ -1,0 +1,35 @@
+@document.meta
+  title: tabs
+	description: Planning for tabs Firefox extension
+  authors: corey
+  categories: 
+  created: 2022-04-20
+  version: 0.0.11
+@end
+
+= ToC Table of Contents
+
+* Philosophy
+
+** What?
+	 A Firefox extension that makes sure user specified tabs are pinned in every single Firefox window.
+
+** Why? (Inspiration)
+	The first inspiration is from the lack of pinned tabs opening in additional Firefox windows. I would like to have a default set of tabs that open with firefox, but in each window of firefox, not just the first.
+
+** How?
+	 On browser startup, the program needs to initialize. It should load the users' configuration into memory from storage, query the current browser tabs that Firefox itself opened, figure out which tabs are not open, and open the tabs.
+
+	 *More succintly*
+	 Initialize:
+	 - Query browser window's current tabs `returns a *promise*`
+	 - Get user's configuration from storage
+	 - Compare the current tab landscape with the desired tab landscape
+	 - Open whatever tabs are needed
+
+	 This would be the MVP
+	 ---
+
+	===
+* Ideas
+	- Choose local or synced storage for each individual tab

@@ -3,6 +3,11 @@
   "name": "Full-time Tabs",
   "version": "1.0",
   "description": "Keeps specified tabs pinned on startup across all windows, old and new.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "kowwy@tabs.dev"
+    }
+  },
   "permissions": ["<all_urls>", "tabs", "storage"],
   "browser_action": {
     "default_icon": "./assets/tab.svg",
@@ -10,6 +15,6 @@
     "browser_style": true
   },
   "background": {
-    "scripts": ["background.js"]
+    "page": "background.html"
   }
 }
